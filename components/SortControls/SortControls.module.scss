@@ -1,0 +1,104 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.sortContainer {
+  @include flex-between;
+  padding: $spacing-md $spacing-lg;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: $spacing-md;
+    align-items: stretch;
+  }
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: var(--text-primary);
+}
+
+.controls {
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: $spacing-xs;
+  background: var(--bg-secondary);
+  padding: $spacing-xs;
+  border-radius: var(--border-radius);
+}
+
+.sortButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-md;
+  background: transparent;
+  border: none;
+  border-radius: $spacing-xs;
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  &.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.orderButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xs $spacing-sm;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-secondary);
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background: var(--bg-primary);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  &.desc {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+
+    &:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+  }
+}

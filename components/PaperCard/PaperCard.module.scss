@@ -1,0 +1,125 @@
+.cardWrapper {
+  width: 100%;
+  max-width: 650px;
+  cursor: pointer;
+}
+
+.card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 32px;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.bookCover {
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.coverPlaceholder {
+  width: 140px;
+  height: 190px;
+  background: linear-gradient(180deg, #d4a574 0%, #c4956a 50%, #b8865e 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+  }
+}
+
+.impactBadge {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #1565c0;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #90caf9;
+}
+
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detailRow {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 12px;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 15px;
+}
+.Title {
+  font-weight: 400;
+  color: #2c3e50;
+  font-size: 15px;
+}
+
+.value {
+  color: #34495e;
+    font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .card {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .bookCover {
+    align-items: center;
+  }
+
+  .label {
+    min-width: 80px;
+    font-size: 14px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
+}

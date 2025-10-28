@@ -1,0 +1,111 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.searchContainer {
+  @include card;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  background: var(--bg-primary);
+}
+
+.searchWrapper {
+  display: flex;
+  gap: $spacing-md;
+  align-items: stretch;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+  }
+}
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-fast);
+
+  &:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  svg {
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: $font-size-base;
+    color: var(--text-primary);
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+  }
+}
+
+.selectGroup {
+  min-width: 200px;
+
+  @media (max-width: $breakpoint-md) {
+    min-width: 100%;
+  }
+}
+
+.select {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: $font-size-base;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+  padding-right: $spacing-xl;
+
+  &:hover {
+    border-color: var(--primary-color);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+}
+
+.resultsCount {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  margin-top: $spacing-sm;
+  text-align: right;
+
+  strong {
+    color: var(--text-primary);
+    font-weight: $font-weight-semibold;
+  }
+}
+
+
+.spinner {
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
